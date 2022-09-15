@@ -1,6 +1,34 @@
-const today = new Date().toLocaleDateString();
+const mongoose = require('mongoose');
 
-const profilearray = [
+const proSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String
+}, {
+    timestamps: {
+        createdAt: "dateCreated",
+        updatedAt: false
+    }
+})
+
+const User = mongoose.model("Profile", proSchema);
+
+module.exports = User;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const today = new Date().toLocaleDateString();
+
+const profile-array = [
     {
     id: 0,
     firstName: 'John',
@@ -15,4 +43,4 @@ const profilearray = [
     }
 ]
 
-module.exports = profilearray
+module.exports = profilearray*/

@@ -1,25 +1,23 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const express = require('express');
-const joi = require('joi');
 const app = express();
-
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const cors = require('cors');
+const crypto = require('crypto');
 const startDb = require('./src/config/db.config');
-//const { validateSignup } = require('./Validator');
 const profileController = require('./controllers/Profile.controller');
-const { urlencoded } = require('express');
 const PORT = 2000;
 startDb();
 
-app.use((req, res, next) => {
-    const start = Date.now();
-    next();
-    const delta = Date.now() - start;
-    console.log(`${req.method} ${req.url} ${delta}ms`);
-});
-
+app.use(morgan('dev'));
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: true}))
 
+app.get('/', profileController.getApp);
 
 app.post('/Profiles', profileController.postProfiles);
 

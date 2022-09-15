@@ -1,8 +1,27 @@
 const model = require('../model/Profile.model');
 const Joi = require('joi');
-//const {registerValidation} = require('../Validator');
+const User = require('../model/Profile.model');
+const schema = require('../Validator');
 
-function postProfiles(req, res) {
+//Getting the root of our app
+function getApp (req, res) {
+    res.send('Users Profiles');
+};
+// Post profiles
+async function postProfiles(req, res) {
+    const ValidateProfile = await schema.validateAsync(req.body);
+    await User.create(ValidateProfile);
+    return res.status(201).json({
+        msg: 'Profile created successfully'
+    })
+
+
+
+
+
+
+/*
+    //return error if both firstName & lastName are not specified
     if (!req.body.firstName) {
         return res.status(400).json ({
             error: 'Missing firstname'
@@ -13,6 +32,7 @@ function postProfiles(req, res) {
         });
     };
 
+    // Setting our profile Schema
     const today = new Date().toLocaleDateString();
     const newProfile = {
         id: model.length,
@@ -21,26 +41,13 @@ function postProfiles(req, res) {
         dateCreated: today
     };
 
-    const schema = Joi.object({
-        firstName: Joi.string().min(2).required(),
-        lastName: Joi.string().min(2).required()
-    });
-    const Validation = schema.validate(req.body);
-    if (Validation.error) {
-        res.json({
-            ErrorMessage: Validation.error.details[0].message
-        });
-        console.log(Validation.error);
-        return Validation.error;
-    } else {
-        console.log(Validation);
-        model.push(newProfile);
-        res.json(newProfile);
-    }
+    // Using Joi validation library to validate our inputs and set requirements
+*/    
 }
 
-function getProfiles(req, res) {
-    res.send(model);
+async function getProfiles(req, res) {
+    const findProfiles = await User.find({});
+    res.status(200).json({data: findProfiles})
 }
 
 function getProfile (req, res) {
@@ -55,6 +62,7 @@ function getProfile (req, res) {
     };
 }
 module.exports = {
+    getApp,
     postProfiles,
     getProfiles,
     getProfile
