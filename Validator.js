@@ -6,27 +6,3 @@ const schema = Joi.object({
 });
 
 module.exports = schema;
-
-
-
-
-
-
-
-
-
-
-
-/*const Validation = schema.validate(req.body);
-// Simplify errors to users
-if (Validation.error) {
-    res.json({
-        ErrorMessage: Validation.error.details[0].message
-    });
-    console.log(Validation.error);
-    //return Validation.error;
-} else {
-    console.log(Validation);
-    model.push(newProfile);
-    res.json(newProfile);
-};*/
