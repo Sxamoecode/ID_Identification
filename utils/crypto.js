@@ -19,7 +19,7 @@ function decrypt(text) {
     decrypted = Buffer.concat([decrypted, decipher.final()]);
     return decrypted.toString();}
 
-const hw = encrypt("Some serious stuff")
+const hw = encrypt("Encrypting")
 
 console.log(hw)
 console.log(decrypt(hw))

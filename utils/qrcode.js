@@ -1,10 +1,9 @@
 const QRcode = require('qrcode')
 
-const stJSON = JSON.stringify(data);
-const QRencrypt = QRcode.toFile("Profile_qrcode.png", stJSON, function(err,code) {
-    if (err) return console.log("Couldn't create qr file");
-    console.log(code);
-});
+const QRencrypt = async (data) => {
+    const encryptedData = await QRcode.toFile(data);
+    return encryptedData;
+}
 
 module.exports = {
     QRencrypt
