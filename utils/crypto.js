@@ -19,10 +19,10 @@ function decrypt(text) {
     decrypted = Buffer.concat([decrypted, decipher.final()]);
     return decrypted.toString();}
 
-const hw = encrypt("Encrypting")
+//const hw = encrypt("Encrypting")
 
-console.log(hw)
-console.log(decrypt(hw))
+//console.log(hw)
+//console.log(decrypt(hw))
 
 module.exports = {
     encrypt,

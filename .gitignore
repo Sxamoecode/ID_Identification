@@ -12,4 +12,8 @@
 .env
 yarn.lock
 /QRCodes/
-/.yarn/
+.yarn/
+.yarnrc.yml
+.bash.exe.stackdump
+.env
+.editorconfig

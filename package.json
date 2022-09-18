@@ -3,10 +3,8 @@
   "packageManager": "yarn@3.2.3",
   "scripts": {
     "start": "nodemon server.js",
-    "do": "node qrcode.js",
-    "qr": "node QRCode_terminal.js",
-    "img": "node Save_qr_as_img.js",
-    "QR": "node QRcode.js"
+    "QR": "node QRcode.js",
+    "cryt": "node utils/crypto.js"
   },
   "dependencies": {
     "body-parser": "^1.20.0",

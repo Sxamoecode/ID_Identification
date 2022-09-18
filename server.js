@@ -4,12 +4,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-const crypto = require('crypto');
 const helmet = require('helmet');
-const csurf = require('csurf');
+//const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const limit = require('express-rate-limit');
+const rateLimit = require('express-rate-limit')
 const startDb = require('./src/config/db.config');
 const profileController = require('./controllers/Profile.controller');
 const PORT = 2000;
@@ -23,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 app.use(cookieParser())
+
 /*
 app.use(
     session({
@@ -47,7 +47,11 @@ app.post('/Profiles', profileController.postProfiles);
 
 app.get('/Profiles', profileController.getProfiles);
 
-app.get('/Profiles/:ProfileID', profileController.getProfile)
+app.get('/search', profileController.searchProfile)
+
+app.delete('/Profiles/:ID', profileController.deleteProfile)
+
+app.post('/Profiles/verify', profileController.verifyProfile)
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
