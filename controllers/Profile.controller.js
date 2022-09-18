@@ -16,7 +16,7 @@ async function postProfiles(req, res) {
         const{__v, _id, ...profileData} = newProfile.toObject();
         const profileString = JSON.stringify(profileData);
         const encryptedData = await encrypt(profileString);
-        const encryptedQRFile = await QRencrypt(profileString);
+        const encryptedQRFile = await QRencrypt(encryptedData);
         console.log(ValidateProfile);
 
         res.status(201).json({
@@ -34,6 +34,13 @@ const deleteProfile = async (req, res) => {
     try {
         const id = req.params.id
         const checkProfile = await User.findOne({id})
+        console.log(checkProfile);
+        checkProfile.delete()
+        console.log("Profile deleted");
+        res.status(201).json({
+            status: 'Success',
+            Msg: 'Deletion Successful'
+        })
     } catch (err) {
         console.log("Profile not Found")
         return res.status(404).json({
@@ -69,10 +76,10 @@ const searchProfile = async (req, res) => {
 
 async function verifyProfile (req, res) {
     try {
-        const data = req.body
+        const {data} = req.body
         if (!data) {
             res.status(400).json({
-                Msg: 'Data required for Verification'
+                Msg: 'Encrypted data required for Verification'
             })
         }
         const decryptedData = await decrypt(data);
