@@ -46,7 +46,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mongoose", "npm:6.6.1"],\
             ["morgan", "npm:1.10.0"],\
             ["nodemon", "npm:2.0.19"],\
-            ["qrcode", "npm:1.5.1"]\
+            ["qrcode", "npm:1.5.1"],\
+            ["start", "npm:5.1.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -185,7 +186,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mongoose", "npm:6.6.1"],\
             ["morgan", "npm:1.10.0"],\
             ["nodemon", "npm:2.0.19"],\
-            ["qrcode", "npm:1.5.1"]\
+            ["qrcode", "npm:1.5.1"],\
+            ["start", "npm:5.1.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2380,6 +2382,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ssri", "npm:9.0.1"],\
             ["minipass", "npm:3.3.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["start", [\
+        ["npm:5.1.0", {\
+          "packageLocation": "./.yarn/cache/start-npm-5.1.0-5b021dab89-6dfb77e544.zip/node_modules/start/",\
+          "packageDependencies": [\
+            ["start", "npm:5.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\

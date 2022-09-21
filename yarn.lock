@@ -120,6 +120,7 @@ __metadata:
     morgan: ^1.10.0
     nodemon: ^2.0.19
     qrcode: ^1.5.1
+    start: ^5.1.0
   languageName: unknown
   linkType: soft
 
@@ -2024,6 +2025,13 @@ __metadata:
   dependencies:
     minipass: ^3.1.1
   checksum: fb58f5e46b6923ae67b87ad5ef1c5ab6d427a17db0bead84570c2df3cd50b4ceb880ebdba2d60726588272890bae842a744e1ecce5bd2a2a582fccd5068309eb
+  languageName: node
+  linkType: hard
+
+"start@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "start@npm:5.1.0"
+  checksum: 6dfb77e5446296f1d4c66977bb1d3438781c9cad2696791195274184802ce01c316034993f39c0774bf942a047bd2ff62ba1372c1e6f83398c35476e7187f6e4
   languageName: node
   linkType: hard
 
