@@ -6,7 +6,7 @@ const QRencrypt = async (data) => {
         color: {dark:'#00F', light:'#000'}
     }, function(err) {
         if (err) throw err
-        console.log('done')
+        console.log('QRCode: done')
     });
     return encryptedData;
 }

@@ -32,22 +32,11 @@ async function postProfiles(req, res) {
         const encryptedData = await encrypt(profileString);
         console.log(encryptedData)
         const decryptedData = await decrypt(encryptedData)
-        console.log(decryptedData)
+        console.log('Decryted: ',decryptedData)
         //Convert encrypted data to QRCode
         const encryptedQRFile = await QRencrypt(decryptedData);
-        if (!encryptedQRFile) {
-            res.status(500).json({
-                Error: err
-            });
-        }
-
-        res.status(201).json({
-            msg: 'Profile created successfully'
-        })
     } catch (error) {
-        res.status(500).send(
-            console.error(error)
-        )
+        console.log(error)
     }
 
 };
