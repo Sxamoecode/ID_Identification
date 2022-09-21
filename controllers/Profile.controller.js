@@ -19,6 +19,10 @@ async function postProfiles(req, res) {
             res.status(404).json({
                 Error: 'Profile not created'
             })
+        } else {
+            res.status(201).json({
+                Msg: "Profile created"
+            })
         }
         //Convert the validated profile to object
         const{__v, _id, ...profileData} = newProfile.toObject();
@@ -33,15 +37,14 @@ async function postProfiles(req, res) {
                 Error: err
             });
         }
-        console.log(ValidateProfile);
 
         res.status(201).json({
             msg: 'Profile created successfully'
         })
-    } catch (err) {
-        res.status(404).json({
-            error: err
-        });
+    } catch (error) {
+        res.status(404).send(
+            console.error(error)
+        );
     }
 
 };
