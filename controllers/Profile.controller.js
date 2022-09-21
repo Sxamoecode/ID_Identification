@@ -30,8 +30,11 @@ async function postProfiles(req, res) {
         const profileString = JSON.stringify(profileData);
         //Parse in the stringified data to the crypto encryption
         const encryptedData = await encrypt(profileString);
+        console.log(encryptedData)
+        const decryptedData = await decrypt(encryptedData)
+        console.log(decryptedData)
         //Convert encrypted data to QRCode
-        const encryptedQRFile = await QRencrypt(encryptedData);
+        const encryptedQRFile = await QRencrypt(decryptedData);
         if (!encryptedQRFile) {
             res.status(500).json({
                 Error: err
@@ -42,9 +45,9 @@ async function postProfiles(req, res) {
             msg: 'Profile created successfully'
         })
     } catch (error) {
-        res.status(404).send(
+        res.status(500).send(
             console.error(error)
-        );
+        )
     }
 
 };
