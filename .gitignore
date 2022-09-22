@@ -9,10 +9,9 @@
 # Documentation here: https://yarnpkg.com/features/zero-installs
 !.yarn/cache
 #.pnp.*
-.env
 yarn.lock
 .yarn/
 .yarnrc.yml
-.bash.exe.stackdump
+bash.exe.stackdump
 .env
 .editorconfig

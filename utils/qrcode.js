@@ -10,7 +10,7 @@ const QRencrypt = async (data) => {
     });
     return encryptedData;
 }
-
+//Profileqr.png is updated whenever a new profile is created
 console.log('Quick response');
 
 module.exports = {
