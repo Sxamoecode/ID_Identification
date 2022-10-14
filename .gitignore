@@ -10,8 +10,9 @@
 !.yarn/cache
 #.pnp.*
 yarn.lock
-.yarn/
+/.yarn/
 .yarnrc.yml
 bash.exe.stackdump
 .env
 .editorconfig
+.pnp.cjs

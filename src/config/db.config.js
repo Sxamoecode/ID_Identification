@@ -10,13 +10,5 @@ const startDb = async () => {
         console.log(e);
     }
 }
-/*const nameSchema = new connect.Schema({
-    firstName: String,
-    lastName: String
-});
 
-const User = new connect.model("User", nameSchema);
-
-exports.nameSchema = nameSchema
-exports.User = User*/
 module.exports = startDb;
